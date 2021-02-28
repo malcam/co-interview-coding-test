@@ -1,4 +1,4 @@
-class Product {
+class DecreaseByOneRule {
   constructor(name, sellIn, price) {
     this.name = name;
     this.sellIn = sellIn;
@@ -16,6 +16,10 @@ class Product {
   decreaseSellInBy(number) {
     this.sellIn -= number;
   }
+
+  invalidate() {
+    this.price = 0;
+  }
 }
 
-module.exports = Product;
+module.exports = DecreaseByOneRule;
