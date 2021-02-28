@@ -6,21 +6,21 @@
       },
   "days": [
   {
-    "day": "1",
+    "day": 1,
     "values": {
       "sellIn": 4,
       "price": 6
     }
   },
   {
-    "day": "2",
+    "day": 2,
     "values": {
       "sellIn": 3,
       "price": 5
     }
   },
   {
-    "day": "3",
+    "day": 3,
     "values": {
       "sellIn": 2,
       "price": 4
