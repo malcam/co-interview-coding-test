@@ -1,0 +1,33 @@
+{
+  "productName": "Special Full Coverage",
+  "rules": [
+    { "name": "EndOfDay" },
+    { "name": "NonNegativePrice" },
+    { "name": "NoMoreDays" }, // Convierte el precio en 0
+    {
+      "name": "DegradePriceBy",
+      "amount": 1,
+      "conditions":[
+        { "whenSellInIsLessThat" : 0}
+      ]
+    },
+    {
+      "name": "UpgradePriceBy",
+      "amount": 1,
+      "conditions": [
+        {"whenSellInIsLessThat": 11},
+        {"whenPriceIsLessThan": 51}
+      ]
+    },
+    {
+      "name": "UpgradePriceBy",
+      "amount": 1,
+      "conditions": [
+        {"whenSellInIsLessThat": 6},
+        {"whenPriceIsLessThan": 51}
+      ]
+    }
+  ]
+}
+
+
