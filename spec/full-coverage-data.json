@@ -1,0 +1,32 @@
+{
+  "name": "Full Coverage",
+  "initialValues": {
+    "sellIn": 2,
+    "price": 0
+  },
+  "days": [
+    {
+      "day": "1",
+      "values": {
+        "sellIn": 1,
+        "price": 1
+      }
+    },
+    {
+      "day": "2",
+      "values": {
+        "sellIn": 0,
+        "price": 2
+      }
+    },
+    {
+      "day": "3",
+      "values": {
+        "sellIn": -1,
+        "price": 4
+      }
+    }
+  ]
+}
+
+
