@@ -4,6 +4,7 @@ class CarInsurance {
   }
 
   updatePrice() {
+    // TODO: implement ruleset engine as in tests
     for (let i = 0; i < this.products.length; i++) {
       if (this.products[i].name != 'Full Coverage' && this.products[i].name != 'Special Full Coverage') {
         if (this.products[i].price > 0 && this.products[i].name != 'Mega Coverage') {

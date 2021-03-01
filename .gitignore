@@ -62,3 +62,5 @@ Thumbs.db
 
 # Web Storm
 .idea
+
+.nyc_output/
