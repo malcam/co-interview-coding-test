@@ -15,7 +15,7 @@ class UpgradePriceBy {
   apply(item) {
     let isPlayable = false;
 
-    if (!item.canUpgradePrice()) {
+    if (!item.canUpgradePrice(this.amount)) {
       return isPlayable;
     }
 
