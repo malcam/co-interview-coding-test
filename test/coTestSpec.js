@@ -65,6 +65,25 @@ describe('Co Test', function () {
         { name: this.productName },
       );
     });
+
+    it('should found rules by name', function () {
+      const repository = new RuleRepository();
+      const runner = new RuleRunner();
+      const ruleset = repository.byName(this.product.name);
+
+      for (let i = 1; i <= 30; i++) {
+        runner.run(this.product, ruleset);
+
+        const element = this.data.days.find((item) => item.day === i);
+
+        if (typeof element !== 'undefined') {
+          expectProductLike(this.product)
+            .toHaveEqualValuesAs(
+              { name: this.data.name, sellIn: element.values.sellIn, price: element.values.price },
+            );
+        }
+      }
+    });
   });
 
   context('when name is Low Coverage', function () {

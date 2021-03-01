@@ -50,6 +50,41 @@
       ]
     },
     {
+      "productName": "Full Coverage",
+      "rules": [
+        { "name": "EndOfDay" },
+        {
+          "name": "DegradePriceBy",
+          "amount": 1,
+          "conditions":[
+            { "whenSellInIsLessThat" : 0}
+          ]
+        },
+        {
+          "name": "UpgradePriceBy",
+          "amount": 2,
+          "conditions": [
+            {"whenSellInIsLessThat": 50}
+          ]
+        },
+        {
+          "name": "UpgradePriceBy",
+          "amount": 1,
+          "conditions": [
+            {"whenSellInIsLessThat": 10}
+          ]
+        },
+        {
+          "name": "UpgradePriceBy",
+          "amount": 1,
+          "conditions": [
+            {"whenSellInIsLessThat": 5}
+          ]
+        },
+        { "name": "NoMoreDays" }
+      ]
+    },
+    {
       "productName": "Low Coverage",
       "rules": [
         { "name": "EndOfDay" },

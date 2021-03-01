@@ -18,6 +18,10 @@ class RuleRepository {
     const factory = new RuleFactory();
     const parseRules = [];
 
+    if (collection === null) {
+      throw new Error(`Ruleset ${name} not found`);
+    }
+
     collection.forEach((rule) => {
       const myRule = factory.make(rule.name, rule);
       if (myRule !== null) {
