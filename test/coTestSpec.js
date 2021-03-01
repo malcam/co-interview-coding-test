@@ -59,6 +59,7 @@ describe('Co Test', function () {
     });
 
     beforeEach(function () {
+      this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
       this.carInsurance = new CarInsurance(
         [new Product(this.productName, this.initialSellIn, this.initialPrice)],
       );
@@ -73,6 +74,26 @@ describe('Co Test', function () {
             { name: this.productName, sellIn: element.values.sellIn, price: element.values.price },
           );
       });
+    });
+
+    it('should found rules by name', function () {
+      const repository = new RuleRepository();
+      const runner = new RuleRunner();
+      const ruleset = repository.byName(this.product.name);
+
+      for (let i = 1; i <= 30; i++) {
+        console.log(i);
+        runner.run(this.product, ruleset);
+
+        const element = this.data.days.find((item) => item.day === i);
+
+        if (typeof element !== 'undefined') {
+          expectProductLike(this.product)
+            .toHaveEqualValuesAs(
+              { name: this.data.name, sellIn: element.values.sellIn, price: element.values.price },
+            );
+        }
+      }
     });
   });
 
@@ -83,6 +104,7 @@ describe('Co Test', function () {
     });
 
     beforeEach(function () {
+      this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
       this.carInsurance = new CarInsurance(
         [new Product(this.productName, this.initialSellIn, this.initialPrice)],
       );
@@ -97,6 +119,25 @@ describe('Co Test', function () {
             { name: this.productName, sellIn: element.values.sellIn, price: element.values.price },
           );
       });
+    });
+
+    it('should found rules by name', function () {
+      const repository = new RuleRepository();
+      const runner = new RuleRunner();
+      const ruleset = repository.byName(this.product.name);
+
+      for (let i = 1; i <= 30; i++) {
+        runner.run(this.product, ruleset);
+
+        const element = this.data.days.find((item) => item.day === i);
+
+        if (typeof element !== 'undefined') {
+          expectProductLike(this.product)
+            .toHaveEqualValuesAs(
+              { name: this.data.name, sellIn: element.values.sellIn, price: element.values.price },
+            );
+        }
+      }
     });
   });
 
