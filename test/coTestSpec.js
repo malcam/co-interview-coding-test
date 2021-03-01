@@ -22,14 +22,9 @@ describe('Co Test', function () {
     });
 
     it('should return the same values', function () {
-      this.data.days.forEach((element) => {
-        const products = this.carInsurance.updatePrice();
-
-        expectProductLike(products[0])
-          .toHaveEqualValuesAs(
-            { name: this.productName, sellIn: element.values.sellIn, price: element.values.price },
-          );
-      });
+      expectProductInDayListLike(this.carInsurance, this.data.days).toHaveEqualValues(
+        { name: this.productName },
+      );
     });
 
     it('should found rules by name', function () {
@@ -66,34 +61,9 @@ describe('Co Test', function () {
     });
 
     it('should return the same values', function () {
-      this.data.days.forEach((element) => {
-        const products = this.carInsurance.updatePrice();
-
-        expectProductLike(products[0])
-          .toHaveEqualValuesAs(
-            { name: this.productName, sellIn: element.values.sellIn, price: element.values.price },
-          );
-      });
-    });
-
-    it('should found rules by name', function () {
-      const repository = new RuleRepository();
-      const runner = new RuleRunner();
-      const ruleset = repository.byName(this.product.name);
-
-      for (let i = 1; i <= 30; i++) {
-        console.log(i);
-        runner.run(this.product, ruleset);
-
-        const element = this.data.days.find((item) => item.day === i);
-
-        if (typeof element !== 'undefined') {
-          expectProductLike(this.product)
-            .toHaveEqualValuesAs(
-              { name: this.data.name, sellIn: element.values.sellIn, price: element.values.price },
-            );
-        }
-      }
+      expectProductInDayListLike(this.carInsurance, this.data.days).toHaveEqualValues(
+        { name: this.productName },
+      );
     });
   });
 
@@ -111,14 +81,9 @@ describe('Co Test', function () {
     });
 
     it('should return the same values', function () {
-      this.data.days.forEach((element) => {
-        const products = this.carInsurance.updatePrice();
-
-        expectProductLike(products[0])
-          .toHaveEqualValuesAs(
-            { name: this.productName, sellIn: element.values.sellIn, price: element.values.price },
-          );
-      });
+      expectProductInDayListLike(this.carInsurance, this.data.days).toHaveEqualValues(
+        { name: this.productName },
+      );
     });
 
     it('should found rules by name', function () {
