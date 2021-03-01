@@ -4,8 +4,10 @@
   "description": "ComparaOnline Software Engineer Test",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/*.js",
-    "test:coverage": "nyc --reporter=text mocha"
+    "test": "npx nyc@latest mocha",
+    "test:coverage": "nyc --reporter=text mocha",
+    "coverage:ci": "nyc --reporter=lcov --reporter=text mocha",
+    "after-30-days": "node ./services/shell/index.js"
   },
   "repository": {
     "type": "git",
