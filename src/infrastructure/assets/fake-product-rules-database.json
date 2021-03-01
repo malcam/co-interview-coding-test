@@ -35,6 +35,19 @@
         },
         { "name": "NoMoreDays" }
       ]
+    },
+    {
+      "productName": "Medium Coverage",
+      "rules": [
+        { "name": "EndOfDay" },
+        {
+          "name": "DegradePriceBy",
+          "amount": 1,
+          "conditions":[
+            { "whenSellInIsLessThat" : 0}
+          ]
+        }
+      ]
     }
   ]
 }
