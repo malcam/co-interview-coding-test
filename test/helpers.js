@@ -17,13 +17,29 @@ const expectProductLike = (product) => ({
   },
 });
 
-const expectProductInDayLike = (updateService, aDay, dayList) => ({
+const expectProductInDayLike = (updateService, aDay) => ({
   toHaveEqualValues: (expectation) => {
-    for (let i = 0, element = dayList[i]; i < 30; i++) {
+    for (let i = 1; i <= 30; i++) {
       const products = updateService.updatePrice();
 
-      if (typeof element !== 'undefined' && element.day === aDay) {
+      if (aDay === i) {
         expectProductLike(products[0]).toHaveEqualValuesAs(expectation);
+        break;
+      }
+    }
+  },
+});
+
+const expectProductInDayListLike = (updateService, dayList) => ({
+  toHaveEqualValues: (expectation) => {
+    for (let i = 1; i <= 30; i++) {
+      const products = updateService.updatePrice();
+      const element = dayList.find((item) => item.day === i);
+
+      if (typeof element !== 'undefined') {
+        expectProductLike(products[0]).toHaveEqualValuesAs(
+          { name: expectation.name, sellIn: element.values.sellIn, price: element.values.price },
+        );
       }
     }
   },
@@ -32,4 +48,5 @@ const expectProductInDayLike = (updateService, aDay, dayList) => ({
 module.exports = {
   expectProductLike,
   expectProductInDayLike,
+  expectProductInDayListLike,
 };

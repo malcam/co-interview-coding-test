@@ -34,6 +34,41 @@
       }
     },
     {
+      "day": 5,
+      "values": {
+        "sellIn": 10,
+        "price": 25
+      }
+    },
+    {
+      "day": 6,
+      "values": {
+        "sellIn": 9,
+        "price": 27
+      }
+    },
+    {
+      "day": 14,
+      "values": {
+        "sellIn": 1,
+        "price": 47
+      }
+    },
+    {
+      "day": 15,
+      "values": {
+        "sellIn": 0,
+        "price": 50
+      }
+    },
+    {
+      "day": 16,
+      "values": {
+        "sellIn": -1,
+        "price": 0
+      }
+    },
+    {
       "day": 23,
       "values": {
         "sellIn": -8,
