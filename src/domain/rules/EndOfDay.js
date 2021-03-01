@@ -8,8 +8,7 @@ class EndOfDay {
    * @return {boolean} if the rule was applied
    */
   apply(item) {
-    item.decreasePriceBy(1);
-    item.decreaseSellInBy(1);
+    item.goToNextDay();
     return true;
   }
 }

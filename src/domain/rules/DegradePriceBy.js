@@ -9,11 +9,15 @@ class DegradePriceBy {
 
   /**
    * Apply this rule
-   * @param {Product} item
+   * @param {Object} item
    * @return {number} the result value.
    */
   apply(item) {
     let isPlayable = false;
+
+    if (!item.canDecreasePrice()) {
+      return isPlayable;
+    }
 
     this.conditions.forEach((conditionList) => {
       // eslint-disable-next-line dot-notation

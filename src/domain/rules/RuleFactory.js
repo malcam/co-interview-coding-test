@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 const EndOfDay = require('./EndOfDay');
 const DegradePriceBy = require('./DegradePriceBy');
+const UpgradePriceBy = require('./UpgradePriceBy');
+const NoMoreDays = require('./NoMoreDays');
 
 class RuleFactory {
   /**
@@ -17,6 +19,16 @@ class RuleFactory {
       }
       case 'DegradePriceBy': {
         myRule = new DegradePriceBy(params.amount, params.conditions);
+        break;
+      }
+
+      case 'UpgradePriceBy': {
+        myRule = new UpgradePriceBy(params.amount, params.conditions);
+        break;
+      }
+
+      case 'NoMoreDays': {
+        myRule = new NoMoreDays();
         break;
       }
 

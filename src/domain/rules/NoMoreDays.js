@@ -8,10 +8,12 @@ class NoMoreDays {
    * @return {boolean} if the rule was applied
    */
   apply(item) {
-    // FIXME: no-param-reassign
-    item.price = 0;
+    let isPlayable = false;
+    if (item.sellIn < 0) isPlayable = true;
 
-    return true;
+    if (isPlayable) item.invalidate();
+
+    return isPlayable;
   }
 }
 
