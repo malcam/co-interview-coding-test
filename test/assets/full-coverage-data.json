@@ -25,6 +25,13 @@
         "sellIn": -1,
         "price": 4
       }
+    },
+    {
+      "day": 18,
+      "values": {
+        "sellIn": -16,
+        "price": 34
+      }
     }
   ]
 }

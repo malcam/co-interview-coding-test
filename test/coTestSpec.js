@@ -141,6 +141,50 @@ describe('Co Test', function () {
     });
   });
 
+  context('when name is Mega Coverage', function () {
+    before(function () {
+      this.data = require('./assets/mega-coverage-data.json');
+      Object.assign(this, collectValues(this.data));
+    });
+
+    beforeEach(function () {
+      this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
+      this.carInsurance = new CarInsurance(
+        [new Product(this.productName, this.initialSellIn, this.initialPrice)],
+      );
+    });
+
+    it('should return the same values', function () {
+      this.data.days.forEach((element) => {
+        const products = this.carInsurance.updatePrice();
+
+        expectProductLike(products[0])
+          .toHaveEqualValuesAs(
+            { name: this.productName, sellIn: element.values.sellIn, price: element.values.price },
+          );
+      });
+    });
+
+    it('should found rules by name', function () {
+      const repository = new RuleRepository();
+      const runner = new RuleRunner();
+      const ruleset = repository.byName(this.product.name);
+
+      for (let i = 1; i <= 30; i++) {
+        runner.run(this.product, ruleset);
+
+        const element = this.data.days.find((item) => item.day === i);
+
+        if (typeof element !== 'undefined') {
+          expectProductLike(this.product)
+            .toHaveEqualValuesAs(
+              { name: this.data.name, sellIn: element.values.sellIn, price: element.values.price },
+            );
+        }
+      }
+    });
+  });
+
   context('when name is Special Full Coverage', function () {
     before(function () {
       this.data = require('./assets/special-full-coverage.json');

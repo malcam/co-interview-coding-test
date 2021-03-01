@@ -49,7 +49,6 @@
         }
       ]
     },
-
     {
       "productName": "Low Coverage",
       "rules": [
@@ -61,6 +60,11 @@
             { "whenSellInIsLessThat" : 0}
           ]
         }
+      ]
+    },
+    {
+      "productName": "Mega Coverage",
+      "rules": [
       ]
     }
   ]
