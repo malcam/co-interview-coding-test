@@ -66,6 +66,19 @@
       "productName": "Mega Coverage",
       "rules": [
       ]
+    },
+    {
+      "productName": "Super Sale",
+      "rules": [
+        { "name": "EndOfDay" },
+        {
+          "name": "DegradePriceBy",
+          "amount": 2,
+          "conditions":[
+            { "whenSellInIsLessThat" : 0}
+          ]
+        }
+      ]
     }
   ]
 }

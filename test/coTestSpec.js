@@ -250,4 +250,37 @@ describe('Co Test', function () {
       }
     });
   });
+
+  context('when name is Super Sale', function () {
+    before(function () {
+      this.data = require('./assets/super-sale-data.json');
+      Object.assign(this, collectValues(this.data));
+    });
+
+    beforeEach(function () {
+      this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
+      this.carInsurance = new CarInsurance(
+        [new Product(this.productName, this.initialSellIn, this.initialPrice)],
+      );
+    });
+
+    it('should found rules by name', function () {
+      const repository = new RuleRepository();
+      const runner = new RuleRunner();
+      const ruleset = repository.byName(this.product.name);
+
+      for (let i = 1; i <= 30; i++) {
+        runner.run(this.product, ruleset);
+
+        const element = this.data.days.find((item) => item.day === i);
+
+        if (typeof element !== 'undefined') {
+          expectProductLike(this.product)
+            .toHaveEqualValuesAs(
+              { name: this.data.name, sellIn: element.values.sellIn, price: element.values.price },
+            );
+        }
+      }
+    });
+  });
 });

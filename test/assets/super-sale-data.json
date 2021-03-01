@@ -1,0 +1,53 @@
+{
+  "name": "Super Sale",
+    "initialValues": {
+      "sellIn": 3,
+      "price": 6
+      },
+  "days": [
+  {
+    "day": 1,
+    "values": {
+      "sellIn": 2,
+      "price": 5
+    }
+  },
+  {
+    "day": 2,
+    "values": {
+      "sellIn": 1,
+      "price": 4
+    }
+  },
+  {
+    "day": 3,
+    "values": {
+      "sellIn": 0,
+      "price": 3
+    }
+  },
+    {
+      "day": 5,
+      "values": {
+        "sellIn": -2,
+        "price": 0
+      }
+    },
+    {
+      "day": 9,
+      "values": {
+        "sellIn": -6,
+        "price": 0
+      }
+    },
+    {
+      "day": 24,
+      "values": {
+        "sellIn": -21,
+        "price": 0
+      }
+    }
+]
+}
+
+
