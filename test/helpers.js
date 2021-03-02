@@ -11,9 +11,9 @@ const expectProductLike = (product) => ({
     expect(product.price).to.equal(expectation.price);
   },
   toHaveEqualValuesAs: (expectation) => {
-    expect(product.name).to.equal(expectation.name);
-    expect(product.sellIn).to.equal(expectation.sellIn);
-    expect(product.price).to.equal(expectation.price);
+    expect(product.name).to.equal(expectation.name, `in day ${expectation.day}`);
+    expect(product.sellIn).to.equal(expectation.sellIn, `in day ${expectation.day}`);
+    expect(product.price).to.equal(expectation.price, `in day ${expectation.day}`);
   },
 });
 
@@ -23,7 +23,7 @@ const expectProductInDayLike = (updateService, aDay) => ({
       const products = updateService.updatePrice();
 
       if (aDay === i) {
-        expectProductLike(products[0]).toHaveEqualValuesAs(expectation);
+        expectProductLike(products[0]).toHaveEqualValuesAs(expectation, `in day ${i}`);
         break;
       }
     }

@@ -32,7 +32,7 @@ class Product {
   }
 
   canUpgradePrice(amount) {
-    return this.price + amount < 50;
+    return this.price + amount <= 50;
   }
 
   goToNextDay() {

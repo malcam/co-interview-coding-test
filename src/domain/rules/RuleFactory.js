@@ -3,6 +3,7 @@ const EndOfDay = require('./EndOfDay');
 const DegradePriceBy = require('./DegradePriceBy');
 const UpgradePriceBy = require('./UpgradePriceBy');
 const NoMoreDays = require('./NoMoreDays');
+const InverseEndOfDay = require('./InverseEndOfDay');
 
 class RuleFactory {
   /**
@@ -15,6 +16,10 @@ class RuleFactory {
     switch (ruleName) {
       case 'EndOfDay': {
         myRule = new EndOfDay(params);
+        break;
+      }
+      case 'InverseEndOfDay': {
+        myRule = new InverseEndOfDay(params);
         break;
       }
       case 'DegradePriceBy': {

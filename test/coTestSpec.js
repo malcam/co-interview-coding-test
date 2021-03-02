@@ -3,8 +3,7 @@ const { collectValues } = require('./assets/utils');
 const { expectProductLike, expectProductInDayLike, expectProductInDayListLike } = require('./helpers');
 const RuleRunner = require('../src/domain/rules/RuleRunner');
 const RuleRepository = require('../src/infrastructure/repositories/RuleRepository');
-
-const CarInsurance = require('../src/application/services/CarInsurance');
+const CarInsurance = require('../src/application/CarInsurance');
 const Product = require('../src/domain/model/Product');
 
 describe('Co Test', function () {
@@ -17,7 +16,7 @@ describe('Co Test', function () {
     beforeEach(function () {
       this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
       this.carInsurance = new CarInsurance(
-        [new Product(this.productName, this.initialSellIn, this.initialPrice)],
+        [new Product(this.productName, this.initialSellIn, this.initialPrice)], new RuleRepository(),
       );
     });
 
@@ -56,7 +55,7 @@ describe('Co Test', function () {
     beforeEach(function () {
       this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
       this.carInsurance = new CarInsurance(
-        [new Product(this.productName, this.initialSellIn, this.initialPrice)],
+        [new Product(this.productName, this.initialSellIn, this.initialPrice)], new RuleRepository(),
       );
     });
 
@@ -79,7 +78,12 @@ describe('Co Test', function () {
         if (typeof element !== 'undefined') {
           expectProductLike(this.product)
             .toHaveEqualValuesAs(
-              { name: this.data.name, sellIn: element.values.sellIn, price: element.values.price },
+              {
+                name: this.data.name,
+                sellIn: element.values.sellIn,
+                price: element.values.price,
+                day: i,
+              },
             );
         }
       }
@@ -95,7 +99,7 @@ describe('Co Test', function () {
     beforeEach(function () {
       this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
       this.carInsurance = new CarInsurance(
-        [new Product(this.productName, this.initialSellIn, this.initialPrice)],
+        [new Product(this.productName, this.initialSellIn, this.initialPrice)], new RuleRepository(),
       );
     });
 
@@ -135,6 +139,7 @@ describe('Co Test', function () {
       this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
       this.carInsurance = new CarInsurance(
         [new Product(this.productName, this.initialSellIn, this.initialPrice)],
+        new RuleRepository(),
       );
     });
 
@@ -171,7 +176,7 @@ describe('Co Test', function () {
 
   context('when name is Special Full Coverage', function () {
     before(function () {
-      this.data = require('./assets/special-full-coverage.json');
+      this.data = require('./assets/special-full-coverage-daga-a.json');
       Object.assign(this, collectValues(this.data));
     });
 
@@ -179,6 +184,7 @@ describe('Co Test', function () {
       this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
       this.carInsurance = new CarInsurance(
         [new Product(this.productName, this.initialSellIn, this.initialPrice)],
+        new RuleRepository(),
       );
     });
 
@@ -228,7 +234,12 @@ describe('Co Test', function () {
         if (typeof element !== 'undefined') {
           expectProductLike(this.product)
             .toHaveEqualValuesAs(
-              { name: this.data.name, sellIn: element.values.sellIn, price: element.values.price },
+              {
+                name: this.data.name,
+                sellIn: element.values.sellIn,
+                price: element.values.price,
+                day: i,
+              },
             );
         }
       }
@@ -245,6 +256,7 @@ describe('Co Test', function () {
       this.product = new Product(this.productName, this.initialSellIn, this.initialPrice);
       this.carInsurance = new CarInsurance(
         [new Product(this.productName, this.initialSellIn, this.initialPrice)],
+        new RuleRepository(),
       );
     });
 
