@@ -7,7 +7,8 @@
     "test": "npx nyc@latest mocha",
     "test:coverage": "nyc --reporter=text mocha",
     "coverage:ci": "nyc --reporter=lcov --reporter=text mocha",
-    "after-30-days": "node ./services/shell/index.js"
+    "after-30-days": "node ./services/shell/day-examaple.js",
+    "last-day": "node ./services/shell/index.js"
   },
   "repository": {
     "type": "git",
