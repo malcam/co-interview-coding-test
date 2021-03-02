@@ -64,4 +64,5 @@ Thumbs.db
 .idea
 
 .nyc_output/
+
 .coverage/

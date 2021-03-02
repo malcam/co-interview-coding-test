@@ -3,7 +3,10 @@ const Product = require('../model/Product');
 
 class DegradePriceBy {
   constructor(amount, conditions) {
-    this.ammount = amount;
+    if (typeof amount !== 'number' || amount <= 0) {
+      throw new Error('Unexpected amount value');
+    }
+    this.amount = amount;
     this.conditions = conditions;
   }
 
@@ -26,7 +29,7 @@ class DegradePriceBy {
       }
     });
 
-    if (isPlayable) item.decreasePriceBy(this.ammount);
+    if (isPlayable) item.decreasePriceBy(this.amount);
 
     return isPlayable;
   }
