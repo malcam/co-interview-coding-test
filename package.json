@@ -4,7 +4,11 @@
   "description": "ComparaOnline Software Engineer Test",
   "main": "index.js",
   "scripts": {
-    "test": "mocha spec/*.js"
+    "test": "npx nyc@latest mocha",
+    "test:coverage": "nyc --reporter=text mocha",
+    "coverage:ci": "nyc --reporter=lcov --reporter=text mocha",
+    "after-30-days": "node ./services/shell/day-examaple.js",
+    "last-day": "node ./services/shell/index.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,11 @@
   "homepage": "https://github.com/comparaonline/test-software-engineer#readme",
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^4.0.1"
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-mocha": "^8.0.0",
+    "mocha": "^8.3.0",
+    "nyc": "^15.1.0"
   }
 }

@@ -1,0 +1,32 @@
+{
+  "name": "Mega Coverage",
+  "initialValues": {
+    "sellIn": 0,
+    "price": 80
+  },
+  "days": [
+    {
+      "day": 1,
+      "values": {
+        "sellIn": 0,
+        "price": 80
+      }
+    },
+    {
+      "day": 8,
+      "values": {
+        "sellIn": 0,
+        "price": 80
+      }
+    },
+    {
+      "day": 27,
+      "values": {
+        "sellIn": 0,
+        "price": 80
+      }
+    }
+  ]
+}
+
+
