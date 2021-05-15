@@ -1,0 +1,29 @@
+{
+  "name": "test-software-engineer",
+  "version": "1.0.0",
+  "description": "ComparaOnline Software Engineer Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha spec/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comparaonline/test-software-engineer.git"
+  },
+  "keywords": [
+    "comparaonline",
+    "test",
+    "software",
+    "engineer"
+  ],
+  "author": "ComparaOnline",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/comparaonline/test-software-engineer/issues"
+  },
+  "homepage": "https://github.com/comparaonline/test-software-engineer#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
